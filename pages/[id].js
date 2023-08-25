@@ -128,12 +128,12 @@ const renderBlock = (block) => {
     case "divider":
       return <hr key={id} />;
     case "quote":
-      return <blockquote key={id}>{value.rich_text[0].plain_text}</blockquote>;
+      return <blockquote key={id}>{value.rich_text[0]?.plain_text}</blockquote>;
     case "code":
       return (
         <pre className={styles.pre}>
           <code className={styles.code_block} key={id}>
-            {value.rich_text[0].plain_text}
+            {value.rich_text[0]?.plain_text}
           </code>
         </pre>
       );
@@ -208,7 +208,7 @@ export default function Post({ page, blocks }) {
   return (
     <div>
       <Head>
-        <title>{page.properties.Name.title[0].plain_text}</title>
+        <title>{page.properties.Name.title[0]?.plain_text}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
